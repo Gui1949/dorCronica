@@ -10,20 +10,52 @@
 
 	<meta charset="utf-8">
 	<style>
-	.draggable { cursor: pointer; width: auto; height: 5vh; padding: 1vh; float: left; margin: 0 1vh 1vh 0; font-size: .9em; }
+	.draggable { 
+		cursor: pointer; 
+		width: auto; 
+		height: 5vh; 
+		padding: 1vh; 
+		float: left;
+		margin: 0 1vh 1vh 0; 
+		font-size: .9em; 
+		border-radius: 0.3vh;
+	}
+
 	.ui-widget-header p, .ui-widget-content p { margin: 0; }
 	#snaptarget { 
 		height: 0;
 		width: 0;
 		border-top: none;
-		border-left: 35vh solid transparent; 
-		border-right: 35vh solid transparent; 
-		border-bottom: 60vh solid #d9d9d9; 
 	}
+
 	#escolha_riscos {
 		display: flex;
-		flex-direction: row;
 	}
+
+	@media (orientation: landscape) {
+		#escolha_riscos {
+			flex-direction: row;
+		}
+
+		#snaptarget {
+			border-left: 20vh solid transparent; 
+			border-right: 20vh solid transparent; 
+			border-bottom: 40vh solid #d9d9d9; 
+		}
+	}
+
+	@media (orientation: portrait) {
+		#escolha_riscos {
+			flex-direction: column;
+		}
+
+		#snaptarget {
+			border-left: 10vw solid transparent; 
+			border-right: 10vw solid transparent; 
+			border-bottom: 20h solid #d9d9d9; 
+		}
+	}
+
 	</style>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
