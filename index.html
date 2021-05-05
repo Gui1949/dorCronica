@@ -6,6 +6,33 @@
       name="keyword"
       content="dor crônica, dores crônicas, neurociência da dor, psicologia da dor, dor nas costas, terapia para alívio da dor"
     />
+
+
+	<meta charset="utf-8">
+	<style>
+	.draggable { cursor: pointer; width: auto; height: 5vh; padding: 1vh; float: left; margin: 0 1vh 1vh 0; font-size: .9em; }
+	.ui-widget-header p, .ui-widget-content p { margin: 0; }
+	#snaptarget { 
+		height: 0;
+		width: 0;
+		border-top: none;
+		border-left: 35vh solid transparent; 
+		border-right: 35vh solid transparent; 
+		border-bottom: 60vh solid #d9d9d9; 
+	}
+	#escolha_riscos {
+		display: flex;
+		flex-direction: row;
+	}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	$( function() {
+	  $( ".draggable" ).draggable({ snap: ".ui-widget-header" });
+	} );
+	</script>
+
     <meta name="robots" content="index,follow" />
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="https://www.dorcronica.blog.br/web/xmlrpc.php" />
@@ -13314,89 +13341,88 @@ downloadHover: rgb(255, 217, 102)
                       ><a
                         href="https://www.dorcronica.blog.br/cat/edufibro'
                         rel="tag"
-                        >Edufibro</a
-                      ></span
-                    >
+                        >Edufibro</a></span>
                   </div>
                   <!-- .entry-meta -->
 
                   <div class="entry-content">
-                    <div
-                      class="pdfprnt-buttons pdfprnt-buttons-post pdfprnt-top-right"
-                    >
-                      <a
-                        href="https://www.dorcronica.blog.br/a-curva-de-novos-casos-de-covid-19-no-brasil/?print=pdf"
-                        class="pdfprnt-button pdfprnt-button-pdf"
-                        target="_blank"
-                        ><img
-                          src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
-                          alt="image_pdf"
-                          title="View PDF"
-                          data-lazy-src="https://dorcronica.blog.br/web/wp-content/plugins/pdf-print/images/pdf.png" /><noscript
-                          ><img
-                            src="https://dorcronica.blog.br/web/wp-content/plugins/pdf-print/images/pdf.png"
-                            alt="image_pdf"
-                            title="View PDF" /></noscript></a
-                      ><a
-                        href="https://www.dorcronica.blog.br/a-curva-de-novos-casos-de-covid-19-no-brasil/?print=print"
-                        class="pdfprnt-button pdfprnt-button-print"
-                        target="_blank"
-                        ><img
-                          src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
-                          alt="image_print"
-                          title="Print Content"
-                          data-lazy-src="https://dorcronica.blog.br/web/wp-content/plugins/pdf-print/images/print.png" /><noscript
-                          ><img
-                            src="https://dorcronica.blog.br/web/wp-content/plugins/pdf-print/images/print.png"
-                            alt="image_print"
-                            title="Print Content" /></noscript
-                      ></a>
-                    </div>
+					<p></p>
                     <p>
-                      A pandemia criou uma situação em que os fatos são
-                      incertos, os riscos são altos e as decisões, muito
-                      urgentes. Na última semana, porém, isso andou se perdendo
-                      de vista. A melhoria das “estatísticas da Covid-19”,
-                      acompanhada pela flexibilização das medidas preventivas e
-                      a abertura de comércio e serviços, trouxe alívio coletivo.
-                      Muito saudável, não fosse ilusório, como eu penso que
-                      seja. Nesse post, as minhas razões.
-                    </p>
-                    <p>
-                      Num
-                      <a
-                        href="https://www.dorcronica.blog.br/flexibilizacao-eu-ja-vi-esse-filme/"
-                        target="_blank"
-                        rel="noopener"
-                        >post anterior</a
-                      >, eu confessei a preocupação quanto ao Brasil repetir a
-                      partir de agora, a mesma cena de há 9 meses. Embarcando
-                      numa flexibilização inoportuna e sem lastro, que pode até
-                      acelerar a pandemia – como de fato aconteceu em 2020.
-                    </p>
-                    <p>
-                      O meu ceticismo certamente deve causar repulsa e ódio em
-                      muita gente boa. Nada mais natural. Aliás, tomara que eu
-                      esteja errado! Hoje em dia, nada me faria mais feliz.
-                      Contudo, na minha experiência, própria de “índio véio”,
-                      lutar com a realidade nunca dá certo. E a realidade, no
-                      caso, não traz bons augúrios para quem pensa que, como
-                      noutros países, as coisas por aqui estão se normalizando
-                      ou a caminho de sê-lo.
-                    </p>
-                    <p>
-                      Duvido. E mesmo sem querer convencer você de nada,
-                      gostaria de expor os meus argumentos.
-                    </p>
-                    <div class="tabela-1">
-                      <h3>Vejamos:</h3>
-                      <ul>
-                        <li>O que todos nós queremos que aconteça?</li>
-                        <li>
-                          O que provavelmente irá acontecer?<strong> </strong>
-                        </li>
-                      </ul>
-                    </div>
+						Da lista abaixo, escolha <strong>cinco</strong> riscos.
+                    </p>					
+
+					<div id= "escolha_riscos">
+						<div id="piramide">
+							<div id="snaptarget" class="ui-widget-header">
+							</div>						   
+							<br style="clear:both">										   
+						</div>
+
+						<div id="riscos">
+							<div class="draggable ui-widget-content">
+								<p>Risco 1</p>
+							</div>	
+							<div class="draggable ui-widget-content">
+								<p>Risco 2</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 3</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 4</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 5</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 6</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 7</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 8</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 9</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 10</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 11</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 12</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 13</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 14</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 15</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 16</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 17</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 18</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 19</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 20</p>
+							</div>
+						</div>	
+						<br style="clear:both">						 
+					</div>
+
                     <h2>
                       O que todos nós queremos que aconteça com a Covid-19?
                     </h2>
