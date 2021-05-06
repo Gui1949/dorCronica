@@ -12,8 +12,10 @@
 	<style>
 	.draggable { 
 		cursor: pointer; 
+		flex: 1;
+		flex-shrink: 1;
 		width: auto; 
-		height: 5vh; 
+		height: 5vh; 		
 		padding: 1vh; 
 		float: left;
 		margin: 0 1vh 1vh 0; 
@@ -21,7 +23,11 @@
 		border-radius: 0.3vh;
 	}
 
-	.ui-widget-header p, .ui-widget-content p { margin: 0; }
+	.ui-widget-header p, .ui-widget-content p {
+		 margin: 0;
+		 white-space: nowrap;
+	}
+
 	#snaptarget { 
 		height: 0;
 		width: 0;
@@ -29,7 +35,15 @@
 	}
 
 	#escolha_riscos {
-		display: flex;
+		display: flex;		
+	}
+
+	#riscos {
+		display: flex;	
+		justify-content: space-between;
+		flex-direction: row;
+		flex-flow: wrap;
+		margin-left: 10vh;
 	}
 
 	@media (orientation: landscape) {
@@ -50,9 +64,9 @@
 		}
 
 		#snaptarget {
-			border-left: 10vw solid transparent; 
-			border-right: 10vw solid transparent; 
-			border-bottom: 20h solid #d9d9d9; 
+			border-left: 45vw solid transparent; 
+			border-right: 45vw solid transparent; 
+			border-bottom: 45vh solid #d9d9d9; 
 		}
 	}
 
@@ -13392,7 +13406,7 @@ downloadHover: rgb(255, 217, 102)
 
 						<div id="riscos">
 							<div class="draggable ui-widget-content">
-								<p>Risco 1</p>
+								<p>Garantia de Qualidade</p>
 							</div>	
 							<div class="draggable ui-widget-content">
 								<p>Risco 2</p>
@@ -13450,6 +13464,66 @@ downloadHover: rgb(255, 217, 102)
 							</div>
 							<div class="draggable ui-widget-content">
 								<p>Risco 20</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 21</p>
+							</div>	
+							<div class="draggable ui-widget-content">
+								<p>Risco 22</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 23</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 24</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 25</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 26</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 27</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 28</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 29</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 30</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 31</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 32</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 33</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 34</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 35</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 36</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 37</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 38</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 39</p>
+							</div>
+							<div class="draggable ui-widget-content">
+								<p>Risco 40</p>
 							</div>
 						</div>	
 						<br style="clear:both">						 
