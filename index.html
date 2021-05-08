@@ -17,14 +17,17 @@
 		width: auto; 
 		height: 5vh; 		
 		padding: 1vh; 
+    background-color: white;
 		float: left;
 		margin: 0 1vh 1vh 0; 
 		font-size: .9em; 
-		border-radius: 0.3vh;
+		border-radius: 0.5vh;
+    animation-duration: 1s;
 	}
 
 	.ui-widget-header p, .ui-widget-content p {
 		 margin: 0;
+     color: red;
 		 white-space: nowrap;
 	}
 
@@ -62,10 +65,23 @@
 		flex-flow: wrap;
 	}
 
+  @keyframes clicar_risco {
+      from{
+        background-color: white;
+        color: black;
+      }
+      
+      to{
+        background-color: red;
+        color: white;
+      }
+    }
+
 	@media (orientation: landscape) {
 		#escolha_riscos {
 			flex-direction: row;
 		}
+
 
     #riscos {
       margin-left: 10vh;
@@ -76,12 +92,17 @@
 			border-right: 20vh solid transparent; 
 			border-bottom: 40vh solid #d9d9d9; 
 		}
+
 	}
 
 	@media (orientation: portrait) {
 		#escolha_riscos {
 			flex-direction: column;
 		}
+
+    #piramide{
+      display: none;
+    }
 
 		#snaptarget {
 			border-left: 45vw solid transparent; 
@@ -104,7 +125,15 @@
     // slider1.oninput = () => {
     //   output.innerHTML = this.value
     // }
+    function risco_click(elem){
+      document.getElementById(elem.id).style.animationName = 'clicar_risco';
+      
+      setTimeout(function(){
+        document.getElementById(elem.id).style.backgroundColor = 'red'
+      },900)
 
+      console.log(elem.textContent)
+    }
   </script>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -13424,25 +13453,25 @@ downloadHover: rgb(255, 217, 102)
 						</div>
 
 						<div id="riscos">
-							<div class="draggable ui-widget-content">
-								<p>Risco 1</p>
+							<div class="draggable ui-widget-content" id="risco1" onClick="risco_click(this)">
+                <p>Risco 1</p>
 							</div>	
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco2" onClick="risco_click(this)">
 								<p>Risco 2</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco3" onClick="risco_click(this)">
 								<p>Risco 3</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco4" onClick="risco_click(this)">
 								<p>Risco 4</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco5" onClick="risco_click(this)">
 								<p>Risco 5</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco6" onClick="risco_click(this)">
 								<p>Risco 6</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco7" onClick="risco_click(this)">
 								<p>Risco 7</p>
 							</div>
 							<div class="draggable ui-widget-content">
@@ -13609,6 +13638,10 @@ downloadHover: rgb(255, 217, 102)
               </datalist>
             </div>
 
+          </div>
+
+          <div id="listar2">
+            
           </div>
 
     <!-- #page -->
