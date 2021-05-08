@@ -99,7 +99,7 @@ datalist {
 #proximo > p {
   color: white;
   font-weight: 600;
-  align-self: baseline;
+  align-self: center;
 }
 
 @keyframes clicar_risco {
