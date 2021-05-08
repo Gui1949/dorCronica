@@ -29,6 +29,22 @@ p {
   font-weight: normal;
 }
 
+a {
+  font-family: "Montserrat", "Montserrat", Sans-serif;
+  font-weight: 600;
+  color: #ff2d44!important;
+}
+
+h1 {
+  color: #16163F;
+}
+
+.material-icons.branco{
+  color: white;
+  align-self: center;
+
+}
+
 #snaptarget {
   height: 0;
   width: 0;
@@ -67,7 +83,7 @@ datalist {
   display: none;
   opacity: 0;
   cursor: pointer;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
   background-color: #ff2d44;
   position: fixed;
@@ -76,15 +92,15 @@ datalist {
   width: 100%;
   z-index: 999;
   animation-duration: 1s;
-  animation-name: 'prox_aparecer';
+  animation-name: "prox_aparecer";
   animation-fill-mode: forwards;
 }
 
 #proximo > p {
   color: white;
   font-weight: 600;
+  align-self: baseline;
 }
-
 
 @keyframes clicar_risco {
   from {
@@ -107,7 +123,6 @@ datalist {
 }
 
 @media (orientation: landscape) {
-
   #escolha_riscos {
     flex-direction: row;
   }
@@ -124,8 +139,7 @@ datalist {
 }
 
 @media (orientation: portrait) {
-
-  #listar_1{
+  #listar_1 {
     display: none;
   }
 
