@@ -62,6 +62,26 @@ datalist {
   flex-flow: wrap;
 }
 
+#proximo {
+  display: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff2d44;
+  position: fixed;
+  bottom: 0;
+  height: 6vh;
+  width: 100%;
+  z-index: 999;
+  animation-duration: 1s;
+}
+
+#proximo > p {
+  color: white;
+  font-weight: 600;
+}
+
+
 @keyframes clicar_risco {
   from {
     background-color: #ffffff;
@@ -72,19 +92,18 @@ datalist {
   }
 }
 
-@keyframes font_risco {
+@keyframes prox_aparecer {
   from {
-    color: black;
-    font-weight: normal;
+    display: none;
   }
 
   to {
-    color: white;
-    font-weight: bolder;
+    display: flex;
   }
 }
 
 @media (orientation: landscape) {
+
   #escolha_riscos {
     flex-direction: row;
   }
@@ -101,6 +120,11 @@ datalist {
 }
 
 @media (orientation: portrait) {
+
+  #listar_1{
+    display: none;
+  }
+
   #escolha_riscos {
     flex-direction: column;
   }

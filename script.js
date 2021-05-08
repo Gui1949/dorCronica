@@ -10,19 +10,28 @@
 //   output.innerHTML = this.value
 // }
 
+let click_array = [];
+
 risco_click = (elem) => {
-  document.getElementById(elem.id).style.animationName = "clicar_risco";
-  document.getElementById(elem.id).childNodes.animationName = "font_risco";
-  document.getElementById(elem.id).getElementsByTagName("p")[0].style.color =
-    "#ffffff";
+  click_array.push(elem.textContent);
 
-  setTimeout(() => {
-    document.getElementById(elem.id).style.backgroundColor = "#ff2d44";
-    document
-      .getElementById(elem.id)
-      .getElementsByTagName("p")[0].style.fontWeight = "bolder";
-    document.getElementById(elem.id).style.borderColor = "#f5c6cb";
-  }, 900);
+  if (click_array.length > 5) {
+    if(window.matchMedia("(orientation: portrait)").matches){
+        let proximo = document.getElementById('proximo')
+        proximo.style.display = 'flex'
+    }
+  } else {
+    console.log(click_array);
+    document.getElementById(elem.id).style.animationName = "clicar_risco";
+    document.getElementById(elem.id).getElementsByTagName("p")[0].style.color =
+      "#ffffff";
 
-  console.log(elem.textContent);
+    setTimeout(() => {
+      document.getElementById(elem.id).style.backgroundColor = "#ff2d44";
+      document
+        .getElementById(elem.id)
+        .getElementsByTagName("p")[0].style.fontWeight = "bolder";
+      document.getElementById(elem.id).style.borderColor = "#f5c6cb";
+    }, 900);
+  }
 };
