@@ -11,6 +11,9 @@
 	<meta charset="utf-8">
 	<style>
 	.draggable { 
+    display: flex;
+    justify-content: center;
+    align-content: center;
 		cursor: pointer; 
 		flex: 1;
 		flex-shrink: 1;
@@ -27,9 +30,14 @@
 
 	.ui-widget-header p, .ui-widget-content p {
 		 margin: 0;
-     color: red;
-		 white-space: nowrap;
+		 white-space: nowrap;     
 	}
+
+  p{
+    animation-duration: 1s;
+    color: black;
+    font-weight: normal;
+  }
 
 	#snaptarget { 
 		height: 0;
@@ -67,15 +75,25 @@
 
   @keyframes clicar_risco {
       from{
-        background-color: white;
-        color: black;
+        background-color: #ffffff;
       }
       
       to{
-        background-color: red;
-        color: white;
+        background-color: #ff2d44;
       }
     }
+
+  @keyframes font_risco {
+    from{
+      color: black;
+      font-weight: normal;
+    }
+
+    to{
+      color: white;
+      font-weight: bolder;
+    }
+  }
 
 	@media (orientation: landscape) {
 		#escolha_riscos {
@@ -125,11 +143,20 @@
     // slider1.oninput = () => {
     //   output.innerHTML = this.value
     // }
+
+    if(window.matchMedia('(orientation: portrait)').matches){      
+      document.getElementById('substitulo1').innerHTML = 'CU'
+    }
+
     function risco_click(elem){
       document.getElementById(elem.id).style.animationName = 'clicar_risco';
+      document.getElementById(elem.id).childNodes.animationName = 'font_risco';
+      document.getElementById(elem.id).getElementsByTagName('p')[0].style.color = '#ffffff'
       
       setTimeout(function(){
-        document.getElementById(elem.id).style.backgroundColor = 'red'
+        document.getElementById(elem.id).style.backgroundColor = '#ff2d44'        
+        document.getElementById(elem.id).getElementsByTagName('p')[0].style.fontWeight = 'bolder'
+        document.getElementById(elem.id).style.borderColor = '#f5c6cb'
       },900)
 
       console.log(elem.textContent)
@@ -13441,7 +13468,7 @@ downloadHover: rgb(255, 217, 102)
 
                   <div class="entry-content">
 					<p></p>
-                    <p draggable="true">
+                    <p id="subtitulo1">
 						Da lista abaixo, escolha <strong>cinco</strong> riscos.
                     </p>					
 
@@ -13474,10 +13501,10 @@ downloadHover: rgb(255, 217, 102)
 							<div class="draggable ui-widget-content" id="risco7" onClick="risco_click(this)">
 								<p>Risco 7</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco8" onClick="risco_click(this)">
 								<p>Risco 8</p>
 							</div>
-							<div class="draggable ui-widget-content">
+							<div class="draggable ui-widget-content" id="risco9" onClick="risco_click(this)">
 								<p>Risco 9</p>
 							</div>
 							<div class="draggable ui-widget-content">
