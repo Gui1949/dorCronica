@@ -1,0 +1,117 @@
+.draggable {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  flex: 1;
+  flex-shrink: 1;
+  width: auto;
+  height: 5vh;
+  padding: 1vh;
+  background-color: white;
+  float: left;
+  margin: 0 1vh 1vh 0;
+  font-size: 0.9em;
+  border-radius: 0.5vh;
+  animation-duration: 1s;
+}
+
+.ui-widget-header p,
+.ui-widget-content p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+p {
+  animation-duration: 1s;
+  color: black;
+  font-weight: normal;
+}
+
+#snaptarget {
+  height: 0;
+  width: 0;
+  border-top: none;
+}
+
+#listar_1 {
+  display: flex;
+  flex-direction: column;
+}
+
+#escolha_riscos {
+  display: flex;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider {
+  width: 100%;
+  height: 3vh;
+  outline: none;
+  background-color: #d9d9d9;
+}
+
+#riscos {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+@keyframes clicar_risco {
+  from {
+    background-color: #ffffff;
+  }
+
+  to {
+    background-color: #ff2d44;
+  }
+}
+
+@keyframes font_risco {
+  from {
+    color: black;
+    font-weight: normal;
+  }
+
+  to {
+    color: white;
+    font-weight: bolder;
+  }
+}
+
+@media (orientation: landscape) {
+  #escolha_riscos {
+    flex-direction: row;
+  }
+
+  #riscos {
+    margin-left: 10vh;
+  }
+
+  #snaptarget {
+    border-left: 20vh solid transparent;
+    border-right: 20vh solid transparent;
+    border-bottom: 40vh solid #d9d9d9;
+  }
+}
+
+@media (orientation: portrait) {
+  #escolha_riscos {
+    flex-direction: column;
+  }
+
+  #piramide {
+    display: none;
+  }
+
+  #snaptarget {
+    border-left: 45vw solid transparent;
+    border-right: 45vw solid transparent;
+    border-bottom: 45vh solid #d9d9d9;
+  }
+}
