@@ -22,8 +22,7 @@ risco_click = (elem) => {
 
   click_array.push(elem.textContent);
 
-  if (click_array.length >= 5) {
-
+  if (click_array.length >= 5) {    
     if (click_array.length == 5) {
       pintar_botao();
     }
@@ -32,6 +31,9 @@ risco_click = (elem) => {
       let proximo = document.getElementById("proximo");
       proximo.style.display = "flex";
       proximo.style.animationName = "prox_aparecer";
+    }
+    else{
+        $( ".draggable" ).draggable( "option", "disabled", true );
     }
   } else {
     pintar_botao();
