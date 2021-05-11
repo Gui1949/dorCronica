@@ -72,11 +72,14 @@ datalist {
   background-color: #d9d9d9;
 }
 
-#riscos {
+#riscos, #riscos_mobile_lista {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-flow: wrap;
+  opacity: 1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 #proximo {
@@ -122,6 +125,16 @@ datalist {
   }
 }
 
+@keyframes etapa1_desaparecer {
+  from{
+    opacity: 1;
+  }
+
+  to{
+    opacity: 0;
+  }
+}
+
 @media (orientation: landscape) {
   #escolha_riscos {
     flex-direction: row;
@@ -149,11 +162,18 @@ datalist {
 
   #piramide {
     display: none;
+    flex-direction: column;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    align-content: center;
+    justify-content: center;
   }
 
   #snaptarget {
-    border-left: 45vw solid transparent;
-    border-right: 45vw solid transparent;
-    border-bottom: 45vh solid #d9d9d9;
+    border-left: 35vw solid transparent;
+    border-right: 35vw solid transparent;
+    border-bottom: 35vh solid #d9d9d9;
+    align-self: center;
   }
 }
