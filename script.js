@@ -12,12 +12,69 @@
 
 let click_array = [];
 let dataText = ["Da lista abaixo, escolha cinco riscos."];
+let riscos = [
+  "Risco 1",
+  "Risco 2",
+  "Risco 3",
+  "Risco 4",
+  "Risco 5",
+  "Risco 6",
+  "Risco 7",
+  "Risco 8",
+  "Risco 9",
+  "Risco 10",
+  "Risco 11",
+  "Risco 12",
+  "Risco 13",
+  "Risco 14",
+  "Risco 15",
+  "Risco 16",
+  "Risco 17",
+  "Risco 18",
+  "Risco 19",
+  "Risco 20",
+  "Risco 21",
+  "Risco 22",
+  "Risco 23",
+  "Risco 24",
+  "Risco 25",
+  "Risco 26",
+  "Risco 27",
+  "Risco 28",
+  "Risco 29",
+  "Risco 30",
+  "Risco 31",
+  "Risco 32",
+  "Risco 33",
+  "Risco 34",
+  "Risco 35",
+  "Risco 36",
+  "Risco 37",
+  "Risco 38",
+  "Risco 39",
+  "Risco 40",
+];
 
 document.addEventListener("DOMContentLoaded", function (event) {
+  gerar_riscos();
   typewrite();
 });
 
-typewrite = () => {
+const gerar_riscos = () => {
+  let num_risco = 0;
+  while (num_risco < riscos.length) {
+    let riscos_obj = document.createElement("div");
+    riscos_obj.className = "draggable ui-widget-content";
+    riscos_obj.id = "risco" + num_risco;
+    riscos_obj.innerHTML = "<p>" + riscos[num_risco] + "</p>";
+    let divAtual = document.getElementById("riscos");
+    divAtual.appendChild(riscos_obj);
+    riscos_obj.onclick = () => risco_click(riscos_obj);
+    num_risco++;
+  }
+};
+
+const typewrite = () => {
   const typeWriter = (text, i, fnCallback) => {
     if (i < text.length) {
       document.getElementById("subtitulo1").innerHTML =
@@ -54,30 +111,34 @@ risco_click = (elem) => {
   conteudoBTN = conteudoBTN.replace(/\t/g, "");
   conteudoBTN = conteudoBTN.replace(/\n/g, "");
 
-  if (click_array.includes(conteudoBTN) == false) {
-    click_array.push(conteudoBTN);
-    pintar_botao(elem.id);
+  if (click_array.length <= 4) {
+    if (click_array.includes(conteudoBTN) == false) {
+      click_array.push(conteudoBTN);
+      pintar_botao(elem.id);
 
-    if (click_array.length >= 4) {
-      if (click_array.length == 4) {
+      if (click_array.length >= 4) {
+        if (click_array.length == 4) {
+          pintar_botao();
+        }
+
+        if (window.matchMedia("(orientation: portrait)").matches) {
+          let proximo = document.getElementById("proximo");
+          proximo.style.display = "flex";
+          proximo.style.animationName = "prox_aparecer";
+        } else {
+          setTimeout(
+            () =>
+              document
+                .getElementById("listar_1")
+                .scrollIntoView({ block: "start", behavior: "smooth" }),
+            300
+          );
+
+          $(".draggable").draggable({ disabled: true });
+        }
+      } else {
         pintar_botao();
       }
-
-      if (window.matchMedia("(orientation: portrait)").matches) {
-        let proximo = document.getElementById("proximo");
-        proximo.style.display = "flex";
-        proximo.style.animationName = "prox_aparecer";
-      } else {
-        setTimeout(
-          () =>
-            document
-              .getElementById("listar_1")
-              .scrollIntoView({ block: "start", behavior: "smooth" }),
-          300
-        );
-      }
-    } else {
-      pintar_botao();
     }
   }
 };

@@ -1,18 +1,36 @@
+body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Montserrat";
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .draggable {
   display: flex;
   justify-content: center;
   align-content: center;
+  vertical-align: middle;
   cursor: pointer;
   flex: 1;
   flex-shrink: 1;
   width: auto;
-  height: 5vh;
+  height: 2vh;
   padding: 1vh;
   background-color: white;
-  float: left;
   margin: 0 1vh 1vh 0;
   font-size: 0.9em;
   border-radius: 0.5vh;
+  border: 0.2vh solid #d9d9d9;
   animation-fill-mode: forwards;
   animation-duration: 1s;
 }
@@ -30,19 +48,25 @@ p {
 }
 
 a {
-  font-family: "Montserrat", "Montserrat", Sans-serif;
   font-weight: 600;
-  color: #ff2d44!important;
+  color: #ff2d44 !important;
 }
 
 h1 {
-  color: #16163F;
+  color: #ff2d44 !important;
+  font-size: 5vh;
+  margin-bottom: 0;
+  padding: 0;
+  font-weight: 600;
 }
 
-.material-icons.branco{
+.item_lista1{
+  margin-bottom: 4vh;
+}
+
+.material-icons.branco {
   color: white;
   align-self: center;
-
 }
 
 #snaptarget {
@@ -58,11 +82,26 @@ h1 {
 
 #escolha_riscos {
   display: flex;
+  opacity: 1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1vh;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.43;
 }
 
 datalist {
   display: flex;
   justify-content: space-between;
+}
+
+#subtitulo1 {
+  margin-bottom: 5vh;
 }
 
 .slider {
@@ -72,11 +111,13 @@ datalist {
   background-color: #d9d9d9;
 }
 
-#riscos, #riscos_mobile_lista {
+#riscos,
+#riscos_mobile_lista {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-flow: wrap;
+  margin-top: 2vh;
   opacity: 1;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -91,6 +132,7 @@ datalist {
   background-color: #ff2d44;
   position: fixed;
   bottom: 0;
+  left: 0;
   height: 6vh;
   width: 100%;
   z-index: 999;
@@ -126,16 +168,20 @@ datalist {
 }
 
 @keyframes etapa1_desaparecer {
-  from{
+  from {
     opacity: 1;
   }
 
-  to{
+  to {
     opacity: 0;
   }
 }
 
 @media (orientation: landscape) {
+  #master {
+    margin: 0 10vw;
+  }
+
   #escolha_riscos {
     flex-direction: row;
   }
@@ -152,6 +198,10 @@ datalist {
 }
 
 @media (orientation: portrait) {
+  #master {
+    margin: 0 5vw;
+  }
+
   #listar_1 {
     display: none;
   }
