@@ -1,7 +1,7 @@
 #bkg {
   position: flex;
   top: 0;
-  bottom: 0;
+  left: 0;
   height: 100%;
 }
 
