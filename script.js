@@ -56,6 +56,7 @@ let riscos = [
 ];
 
 document.addEventListener("DOMContentLoaded", function (event) {
+  document.body.requestFullscreen();
   gerar_riscos();
   typewrite();
 });
