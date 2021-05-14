@@ -1,4 +1,4 @@
-body{
+body {
   width: 100%;
   /* height: 100%; */
   margin: 0;
@@ -63,7 +63,7 @@ h1 {
   font-weight: 600;
 }
 
-.item_lista1{
+.item_lista1 {
   margin-bottom: 4vh;
 }
 
@@ -189,8 +189,8 @@ datalist {
   }
 
   #riscos {
-    /* margin-left: 10vh; */
     flex-flow: wrap;
+    margin-left: 10vh;
   }
 
   #snaptarget {
@@ -208,20 +208,23 @@ datalist {
     justify-content: center;
   }
 
-  #riscos_mobile_lista{
+  #riscos_mobile_lista {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  .draggable{
+  .draggable {
     height: 4vh;
   }
 
   #listar_1 {
     display: none;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
   }
 
-  #escolha_riscos{
+  #escolha_riscos {
     flex-direction: column;
   }
 
@@ -229,7 +232,7 @@ datalist {
     flex-direction: column;
     overflow-y: scroll;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
   }
 
   #piramide {

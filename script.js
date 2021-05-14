@@ -61,6 +61,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
   typewrite();
 });
 
+const aparecer_elemento = (elemento) => {
+  document.getElementById(elemento).style.display = "flex";
+  document.getElementById(elemento).style.animationName = "prox_aparecer";
+};
+
+const sumir_elemento = (elemento) => {
+  document.getElementById(elemento).style.animationName = "etapa1_desaparecer";
+  setTimeout(
+    () => (document.getElementById(elemento).style.display = "none"),
+    900
+  );
+};
+
 const gerar_riscos = () => {
   let num_risco = 0;
   while (num_risco < riscos.length) {
@@ -101,13 +114,21 @@ const typewrite = () => {
   StartTextAnimation(0);
 };
 
-pintar_botao = (elem) => {
-  document.getElementById(elem).style.animationName = "clicar_risco";
-  document.getElementById(elem).getElementsByTagName("p")[0].style.color =
-    "#ffffff";
+const adicionar_typewrite = (texto) => {
+  dataText.push(texto);
+  dataText.shift();
+  typewrite();
 };
 
-risco_click = (elem) => {
+const pintar_botao = (elem) => {
+  try {
+    document.getElementById(elem).style.animationName = "clicar_risco";
+    document.getElementById(elem).getElementsByTagName("p")[0].style.color =
+      "#ffffff";
+  } catch {}
+};
+
+const risco_click = (elem) => {
   let conteudoBTN = elem.textContent;
   conteudoBTN = conteudoBTN.replace(/\t/g, "");
   conteudoBTN = conteudoBTN.replace(/\n/g, "");
@@ -117,15 +138,13 @@ risco_click = (elem) => {
       click_array.push(conteudoBTN);
       pintar_botao(elem.id);
 
-      if (click_array.length >= 4) {
-        if (click_array.length == 4) {
+      if (click_array.length >= 5) {
+        if (click_array.length == 5) {
           pintar_botao();
         }
 
         if (window.matchMedia("(orientation: portrait)").matches) {
-          let proximo = document.getElementById("proximo");
-          proximo.style.display = "flex";
-          proximo.style.animationName = "prox_aparecer";
+          aparecer_elemento("proximo");
         } else {
           setTimeout(
             () =>
@@ -144,19 +163,27 @@ risco_click = (elem) => {
   }
 };
 
-etapa2_mobile = (elem) => {
-  console.log(click_array);
-  document.getElementById(elem.id).style.animationName = "etapa1_desaparecer";
-  document.getElementById("riscos").style.animationName = "etapa1_desaparecer";
+const etapa2_mobile = (elem) => {
+  let array_valid = [];
+
+  sumir_elemento(elem.id);
+  sumir_elemento("riscos");
+
+  const etapa2_mobile_valid = (btn) => {
+    console.log(btn);
+    pintar_botao(btn);
+    array_valid.push(btn);
+
+    if (array_valid.length == 5) {
+      aparecer_elemento("proximo");
+      document.getElementById("proximo").onclick = () => etapa3_mobile();
+    }
+  };
 
   setTimeout(() => {
-    document.getElementById(elem.id).remove();
     document.getElementById("riscos").remove();
-    document.getElementById("piramide").style.display = "flex";
-    document.getElementById("piramide").style.animationName = "prox_aparecer";
-    dataText.push("Mova os cinco riscos para a pirâmide.");
-    dataText.shift();
-    typewrite();
+    aparecer_elemento("piramide");
+    adicionar_typewrite("Mova os cinco riscos para a pirâmide.");
 
     let riscos_mobile_lista = document.createElement("div");
     $(".draggable").draggable("enabled");
@@ -174,9 +201,20 @@ etapa2_mobile = (elem) => {
       riscos_mobile.innerHTML = "<p>" + click_array[i] + "</p>";
       let divAtual = document.getElementById("riscos_mobile_lista");
       divAtual.appendChild(riscos_mobile);
-      riscos_mobile.onclick = () => pintar_botao(riscos_mobile.id);
+      riscos_mobile.ontouchstart = () => etapa2_mobile_valid(riscos_mobile.id);
       i++;
     }
+
     $(".draggable").draggable({ snap: ".ui-widget-header" });
+  }, 900);
+};
+
+const etapa3_mobile = () => {
+  sumir_elemento("escolha_riscos");
+  sumir_elemento("proximo");
+  setTimeout(() => {
+    adicionar_typewrite("Não sei o que escrever aqui kkkkkkk");
+    document.getElementById("escolha_riscos").remove();
+    aparecer_elemento("listar_1");
   }, 900);
 };
