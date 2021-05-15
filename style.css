@@ -127,7 +127,7 @@ datalist {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-top: 2vh;
+  margin-top: 1vh;
   opacity: 1;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -164,6 +164,7 @@ datalist {
   padding-left: 2.5vh;
   background-color: #b31023;
   color: #ffffff;
+  animation-duration: 1s;
   height: 5vh;
   border-top-left-radius: 0.5vh;
   border-top-right-radius: 0.5vh;
@@ -185,7 +186,7 @@ datalist {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 55vh;
+  height: 48vh;
   align-items: flex-start;
   padding: 0 2.5vh;
   background-color: antiquewhite;

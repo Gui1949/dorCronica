@@ -217,7 +217,9 @@ const etapa3_mobile = () => {
   sumir_elemento("escolha_riscos");
   sumir_elemento("proximo");
   setTimeout(() => {
-    adicionar_typewrite("Avalie o risco mediante o seu conhecimento sobre o mesmo.");
+    adicionar_typewrite(
+      "Avalie o risco mediante o seu conhecimento sobre o mesmo."
+    );
     document.getElementById("escolha_riscos").remove();
     aparecer_elemento("listar_1");
   }, 900);
@@ -231,7 +233,7 @@ const etapa3_mobile = () => {
   const while_lista1 = () => {
     while (i < click_array.length) {
       let risco_titulo = document.createElement("h3");
-      risco_titulo.id = 'risco_titulo'
+      risco_titulo.id = "risco_titulo";
       risco_titulo.innerHTML = click_array[i];
       riscos_lista1.appendChild(risco_titulo);
 
@@ -276,17 +278,16 @@ const etapa3_mobile = () => {
       riscos_prox.className = "btn_prox_lista";
       riscos_prox.onclick = () => {
         if (i != 5) {
-          sumir_elemento('risco_titulo')
+          sumir_elemento("risco_titulo");
           setTimeout(() => {
             riscos_lista1.innerHTML = "";
             while_lista1();
-            aparecer_elemento('risco_titulo')
-          },900)
+            aparecer_elemento("risco_titulo");
+          }, 900);
         } else {
           sumir_elemento("listar_1");
           setTimeout(() => {
-            aparecer_elemento("listar_2");
-            adicionar_typewrite("Informações sobre o risco.")
+            etapa4_mobile();
           }, 900);
         }
       };
@@ -297,4 +298,77 @@ const etapa3_mobile = () => {
     }
   };
   while_lista1();
+};
+
+const etapa4_mobile = () => {
+  adicionar_typewrite("Informações sobre o risco.");
+
+  let i = 0;
+
+  const while_lista2 = () => {
+    aparecer_elemento("listar_2");
+    while (i < click_array.length) {
+      let titulo_listar2 = document.createElement("div");
+      titulo_listar2.className = "titulo_listar2";
+      titulo_listar2.id = "titulo_listar2";
+      titulo_listar2.innerHTML = click_array[i];
+
+      let listar2 = document.getElementById("listar_2");
+      listar2.appendChild(titulo_listar2);
+
+      let conteudo_listar2 = document.createElement("div");
+      conteudo_listar2.className = "conteudo_listar2";
+      conteudo_listar2.id = "conteudo_listar2";
+      listar2.appendChild(conteudo_listar2);
+
+      let subtitulo1_listar2 = document.createElement("div");
+      subtitulo1_listar2.className = "subtitulo1_listar2";
+      subtitulo1_listar2.innerHTML = "Descrição:";
+      conteudo_listar2.appendChild(subtitulo1_listar2);
+
+      let texto1_listar2 = document.createElement("div");
+      texto1_listar2.innerHTML = "Teste";
+      conteudo_listar2.appendChild(texto1_listar2);
+
+      subtitulo1_listar2 = document.createElement("div");
+      subtitulo1_listar2.className = "subtitulo1_listar2";
+      subtitulo1_listar2.innerHTML = "Significância:";
+      conteudo_listar2.appendChild(subtitulo1_listar2);
+
+      texto1_listar2 = document.createElement("div");
+      texto1_listar2.innerHTML = "Teste";
+      conteudo_listar2.appendChild(texto1_listar2);
+
+      subtitulo1_listar2 = document.createElement("div");
+      subtitulo1_listar2.className = "subtitulo1_listar2";
+      subtitulo1_listar2.innerHTML = "Participação:";
+      conteudo_listar2.appendChild(subtitulo1_listar2);
+
+      texto1_listar2 = document.createElement("div");
+      texto1_listar2.innerHTML = "Teste";
+      conteudo_listar2.appendChild(texto1_listar2);
+
+      let botao_prox = document.createElement("div");
+      botao_prox.innerHTML = "Próximo";
+      botao_prox.className = "btn_prox_lista lista2";
+
+      botao_prox.onclick = () => {
+        if (i != 5) {
+          sumir_elemento("listar_2");
+          setTimeout(() => {
+            document.getElementById("listar_2").innerHTML = ''
+            while_lista2();
+          }, 900);
+        } else {
+          document.write("Fim da execução");
+        }
+      };
+
+      listar2.appendChild(botao_prox);
+      i++
+      break;
+    }
+  };
+
+  while_lista2();
 };
