@@ -146,14 +146,7 @@ const risco_click = (elem) => {
         if (window.matchMedia("(orientation: portrait)").matches) {
           aparecer_elemento("proximo");
         } else {
-          setTimeout(
-            () =>
-              document
-                .getElementById("listar_1")
-                .scrollIntoView({ block: "start", behavior: "smooth" }),
-            300
-          );
-
+          etapa3_mobile();
           $(".draggable").draggable({ disabled: true });
         }
       } else {
@@ -356,7 +349,7 @@ const etapa4_mobile = () => {
         if (i != 5) {
           sumir_elemento("listar_2");
           setTimeout(() => {
-            document.getElementById("listar_2").innerHTML = ''
+            document.getElementById("listar_2").innerHTML = "";
             while_lista2();
           }, 900);
         } else {
@@ -365,7 +358,7 @@ const etapa4_mobile = () => {
       };
 
       listar2.appendChild(botao_prox);
-      i++
+      i++;
       break;
     }
   };
