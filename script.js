@@ -213,6 +213,7 @@ const etapa2_mobile = (elem) => {
 };
 
 const etapa3_mobile = () => {
+  let i = 0;
   sumir_elemento("escolha_riscos");
   sumir_elemento("proximo");
   setTimeout(() => {
@@ -220,5 +221,53 @@ const etapa3_mobile = () => {
     document.getElementById("escolha_riscos").remove();
     aparecer_elemento("listar_1");
   }, 900);
-};
 
+  let riscos_lista1 = document.createElement("div");
+  riscos_lista1.className = "item_lista1";
+  riscos_lista1.id = "item_lista1_" + i;
+  let divAtual = document.getElementById("listar_1");
+  divAtual.appendChild(riscos_lista1);
+
+  while (i < click_array.length) {
+    let risco_titulo = document.createElement("h3");
+    risco_titulo.innerHTML = click_array[i];
+    riscos_lista1.appendChild(risco_titulo);
+
+    let risco_subtitulo = document.createElement("h4");
+    risco_subtitulo.innerHTML = "O quanto você acha que entende disso?";
+    riscos_lista1.appendChild(risco_subtitulo);
+
+    let risco_input = document.createElement("input");
+    risco_input.id = "slider" + i;
+    risco_input.list = "slider_lista";
+    risco_input.className = "slider";
+    risco_input.type = "range";
+    risco_input.value = "50";
+    risco_input.min = "1";
+    risco_input.max = "100";
+    riscos_lista1.appendChild(risco_input);
+
+    let risco_list = document.createElement("datalist");
+    risco_list.id = "slider_lista";
+
+    let risco_option1 = document.createElement("option");
+    let risco_option2 = document.createElement("option");
+    let risco_option3 = document.createElement("option");
+
+    risco_option1.value = '0'
+    risco_option1.label = 'Pouco'
+
+    risco_option2.value = '50'
+    risco_option2.label = 'Não sei informar'
+
+    risco_option3.value = '100'
+    risco_option3.label = 'Muito'
+
+    risco_list.appendChild(risco_option1);
+    risco_list.appendChild(risco_option2);
+    risco_list.appendChild(risco_option3);
+
+    riscos_lista1.appendChild(risco_list);
+    i++;
+  }
+};
