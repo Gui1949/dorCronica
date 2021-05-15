@@ -109,9 +109,17 @@ datalist {
 
 .slider {
   width: 100%;
-  height: 3vh;
+  margin-bottom: 1vh;
   outline: none;
   background-color: #d9d9d9;
+}
+
+.slider::-webkit-slider-thumb, .slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 3vh;
+  border-radius: 2vh;
+  background: #ff2d44;
 }
 
 #riscos,
@@ -123,6 +131,11 @@ datalist {
   opacity: 1;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+}
+
+.subtitulo1_listar2 {
+  font-weight: 600;
+  margin-top: 2vh;
 }
 
 .btn_prox_lista {
@@ -139,13 +152,43 @@ datalist {
   margin-top: 2vh;
 }
 
+.btn_prox_lista.lista2 {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .titulo_listar2 {
+  display: flex;
+  align-items: center;
+  padding-left: 2.5vh;
   background-color: #b31023;
   color: #ffffff;
-  font-weight: 600;
-  height: 4vh;
+  height: 5vh;
   border-top-left-radius: 0.5vh;
   border-top-right-radius: 0.5vh;
+}
+
+#risco_titulo {
+  animation-duration: 1s;
+}
+
+#listar_2 {
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.conteudo_listar2 {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 55vh;
+  align-items: flex-start;
+  padding: 0 2.5vh;
+  background-color: antiquewhite;
 }
 
 #proximo {
