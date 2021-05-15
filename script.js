@@ -172,7 +172,10 @@ const etapa2_mobile = (elem) => {
   const etapa2_mobile_valid = (btn) => {
     console.log(btn);
     pintar_botao(btn);
-    array_valid.push(btn);
+
+    if (array_valid.includes(btn) == false) {
+      array_valid.push(btn);
+    }
 
     if (array_valid.length == 5) {
       aparecer_elemento("proximo");
@@ -218,3 +221,4 @@ const etapa3_mobile = () => {
     aparecer_elemento("listar_1");
   }, 900);
 };
+
