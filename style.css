@@ -7,6 +7,10 @@ body {
   overflow-x: hidden;
 }
 
+h2 {
+  margin-bottom: 0;
+}
+
 * {
   font-family: "Montserrat";
 }
@@ -113,7 +117,8 @@ datalist {
   background-color: #d9d9d9;
 }
 
-.slider::-webkit-slider-thumb, .slider::-moz-range-thumb {
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
   -webkit-appearance: none;
   border: none;
   height: 3vh;
@@ -253,10 +258,20 @@ datalist {
 }
 
 @media (orientation: landscape) {
-
   #master {
     margin: 0 10vw;
     width: 80%;
+  }
+/* 
+  #listar_1, #subtitulo1{
+    justify-items: center;
+    align-items: center;
+  } */
+
+  #subtitulo1 {
+    margin-bottom: 3vh;
+    width: 60%;
+    align-self: center;
   }
 
   #escolha_riscos {
@@ -284,7 +299,7 @@ datalist {
   }
 
   #riscos_mobile_lista {
-    margin-top: 5vh;
+    margin-top: 3vh;
     flex-direction: row;
     flex-wrap: wrap;
   }
