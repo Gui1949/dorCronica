@@ -163,7 +163,6 @@ const etapa2_mobile = (elem) => {
   sumir_elemento("riscos");
 
   const etapa2_mobile_valid = (btn) => {
-    console.log(btn);
     pintar_botao(btn);
 
     if (array_valid.includes(btn) == false) {
@@ -197,7 +196,7 @@ const etapa2_mobile = (elem) => {
       riscos_mobile.innerHTML = "<p>" + click_array[i] + "</p>";
       let divAtual = document.getElementById("riscos_mobile_lista");
       divAtual.appendChild(riscos_mobile);
-      riscos_mobile.ontouchstart = () => etapa2_mobile_valid(riscos_mobile.id);
+      riscos_mobile.ontouchstart = () => etapa2_mobile_valid(riscos_mobile.id);    
       i++;
     }
 
