@@ -215,6 +215,9 @@ const etapa3_mobile = () => {
     );
     document.getElementById("escolha_riscos").remove();
     aparecer_elemento("listar_1");
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      document.getElementById("conteudo").style.width = "55%";
+    }
   }, 900);
 
   let riscos_lista1 = document.createElement("div");
